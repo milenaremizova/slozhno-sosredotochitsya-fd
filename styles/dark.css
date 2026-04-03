@@ -11,4 +11,33 @@
   */
   --dark-background-image: url(/images/cover-image-dark.png); 
   --dark-background-color: #000028;
+  --color-text-primary: #F1B2CE;
+  --color-text-secondary: #000028;
+  --accent-color: #FF0070;
+  --heading-accent-color: #DB00FF;
+}
+
+.theme-dark header span {
+  display: inline-block;
+}
+
+.theme-dark header span::after {
+  display: inline-block;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.theme-light) {
+    --dark-background-image: url(/images/cover-image-dark.png); 
+    --dark-background-color: #000028;
+    --color-text-primary: #F1B2CE;
+    --color-text-secondary: #000028;
+    --accent-color: #FF0070;
+    --heading-accent-color: #DB00FF;
+  }
+  header span {
+    display: inline-block;
+  }
+  header span::after {
+    display: inline-block;
+  }
 }

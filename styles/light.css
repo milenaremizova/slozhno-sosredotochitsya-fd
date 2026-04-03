@@ -11,4 +11,38 @@
   */
   --light-background-image: url(/images/cover-image-light.png);
   --dark-background-color: #FFF1F7;
+  --color-text-primary: #353430;
+  --accent-color: #FF8DCB;
+  --heading-accent-color: #FFC2E6;
+}
+
+.theme-light header .header__decorative-text {
+  display: none;
+}
+
+.theme-light header .header__decorative-text::after {
+  display: none;
+}
+
+.decorated-zone {
+  color: var(--color-text-primary);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not(.theme-dark){
+    --light-background-image: url(/images/cover-image-light.png);
+    --dark-background-color: #FFF1F7;
+    --color-text-primary: #353430;
+    --accent-color: #FF8DCB;
+    --heading-accent-color: #FFC2E6;
+  }
+  header span .header__decorative-text {
+    display: none;
+  }
+  header span .header__decorative-text::after {
+    display: none;
+  }
+  .decorated-zone {
+    color: var(--color-text-primary);
+  }
 }
