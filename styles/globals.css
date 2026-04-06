@@ -22,7 +22,7 @@ h5,
 h6,
 p {
   margin: 0;
-  font-size: 18px;
+  font-size: inherit;
 }
 
 ul {
@@ -52,36 +52,38 @@ a {
 /* Медиавыражения для адаптива */
 
 @media (width >= 768px) {
-  .header {
+  .page .header {
     min-height: 1024px;
+  }
+  .page .header {
     padding: 0;
   }
-  .header__decorative-text {
+  .header .header__decorative-text {
     right: 30px;
     top: 20px;
   }
-  .header__theme-menu {
+  .header .header__theme-menu {
     padding-right: 20px;
     margin-top: 17px;
   }
-  .header__theme-menu-list {
+  .header .header__theme-menu-list {
     gap: 16px;
   }
-  .header__title {
-    margin-top: 10px;
+  .header .header__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
-  .header__subtitle {
+  .header .header__subtitle {
     inline-size: 47%;
     margin-inline-end: 22px;
     margin-block-end: 25px;
     justify-self: flex-end;
   }
   .decorated-zone::before {
-    bottom: 20px;
+    bottom: 24px;
     left: 20px;
   }
   .decorated-zone::after {
-    top: 20px;
+    top: 22px;
     right: 20px;
   }
   .content__section {
@@ -89,33 +91,32 @@ a {
   }
   .section__focus-issues {
     grid-template-columns: fit-content(236px) minmax(472px, 2fr);
+    grid-template-rows: auto;
     margin-top: 60px;
   }
   .section__focus-reducers .section__title {
     max-width: min-content;
   }
-  .content__section:not(:first-of-type) {
-    margin-top: 40px;
+  .content .section__focus-reducers {
+    margin-top: 60px;
   }
-  .section__focus-tips {
+  .content .section__focus-issues {
+    margin-top: 60px;
+  }
+  .content .section__focus-tips {
     grid-template-columns: fit-content(236px) minmax(472px, 2fr);
-    grid-template-rows: 22px 1fr;
-    padding-top: 18px;
-    padding-bottom: 18px;
+    grid-template-rows: auto;
+    margin-top: 57px;
+    margin-bottom: 57px;
+  }
+  .content .section__focus-tips-visual {
+    gap: var(--gap-m);
+  }
+  .content .focus-tips-visual__gallery-list {
+    gap: var(--gap-m);
   }
   .focus-tips__card-list {
     grid-column: 2;
-  }
-  .focus-tips-visual__gallery-list {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    max-block-size: 786px;
-    gap: 20px;
-  }
-  .gallery__image {
-    height: 100%;
-    object-fit: cover;
   }
   .gallery-list__item:nth-child(1) {
     grid-column: 1 / 5;
@@ -134,59 +135,67 @@ a {
   .gallery-list__item:nth-child(5) {
     grid-column: 3 / 7;
   }
-  .footer {
+  .page .footer {
     min-height: 1024px;
-    margin-top: 4.2rem;
+    margin-top: 3.2rem;
+  }
+  .footer .footer__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 }
 
 @media (width >= 1024px) {
-  .header {
-    grid-template-rows: 335px min-content 355px;
+  .page .header {
+    grid-template-rows: 1fr min-content 1fr;
     min-height: 768px;
   }
-  .decorated-zone::before {
-    bottom: 22px;
+  .page .header__title {
+    display: grid;
+    place-items: center end;
   }
-  .decorated-zone::after {
-    top: 17px;
+  .page .header.decorated-zone::before {
+    bottom: 20px;
+    left: 20px;
   }
-  .header__theme-menu {
+  .page .header.decorated-zone::after {
+    top: 20px;
+    right: 20px;
+  }
+  .header .header__theme-menu {
     justify-self: center;
-    align-self: self-start;
-    margin-top: 24px;
-    padding: 0
+    align-self: start;
+    margin-top: 20px;
+    padding: 0;
   }
-  .header__theme-menu-list {
+  .header .header__theme-menu-list {
     flex-direction: row;
+    gap: var(--gap-s);
   }
-  .header__title,
-  .footer__title {
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-  }
-  .header__subtitle {
+  .header .header__subtitle {
     inline-size: 48%;
     margin-block-end: 45px;
+    justify-self: end;
+    margin-top: 40px;
   }
   .section__focus-issues {
     grid-template-columns: fit-content(320px) minmax(653px, 2fr);
+    grid-template-rows: auto;
   }
-
   .section__focus-reducers .section__title {
     max-width: 300px;
-
   }
   .focus-reducers__card-list {
     grid-template-columns: repeat(3, minmax(314px, max-content));
     grid-template-rows: 1fr;
-    gap: 20px;
+    gap: var(--gap-m);
   }
-  .section__focus-tips {
+  .content .section__focus-tips {
     grid-template-columns: fit-content(315px) minmax(649px, 2fr);
+    grid-template-rows: auto;
+    margin-top: 17px;
   }
-  .footer {
+  .page .footer {
     height: 100vh;
     min-height: 768px;
-    margin-top: 339px;
   }
 }

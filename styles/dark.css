@@ -9,35 +9,65 @@
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя
   */
-  --dark-background-image: url(/images/cover-image-dark.png); 
+  --dark-background-image: url("../images/cover-image-dark.png");
   --dark-background-color: #000028;
-  --color-text-primary: #F1B2CE;
+  --color-text-primary: #f1b2ce;
   --color-text-secondary: #000028;
-  --accent-color: #FF0070;
-  --heading-accent-color: #DB00FF;
+  --accent-color: #ff0070;
+  --heading-accent-color: #db00ff;
 }
 
-.theme-dark header span {
+.theme-dark .page {
+  background-image: var(--dark-background-image);
+  background-color: var(--dark-background-color);
+}
+
+.theme-dark .decorated-zone::before {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 25px;
+  height: 25px;
+  border-bottom: 1px solid var(--accent-color);
+  border-left: 1px solid var(--accent-color);
+}
+
+.theme-dark .decorated-zone::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  width: 25px;
+  height: 25px;
+  border-top: 1px solid var(--accent-color);
+  border-right: 1px solid var(--accent-color);
+}
+
+.theme-dark .section__title {
+  color: var(--accent-color);
+}
+
+.theme-dark span {
   display: inline-block;
 }
 
-.theme-dark header span::after {
+.theme-dark span::after {
   display: inline-block;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not(.theme-light) {
-    --dark-background-image: url(/images/cover-image-dark.png); 
-    --dark-background-color: #000028;
-    --color-text-primary: #F1B2CE;
-    --color-text-secondary: #000028;
-    --accent-color: #FF0070;
-    --heading-accent-color: #DB00FF;
-  }
-  header span {
-    display: inline-block;
-  }
-  header span::after {
-    display: inline-block;
-  }
+.theme-dark .header__theme-menu-button {
+  color: var(--accent-color);
+}
+
+.theme-dark .header__theme-menu-item:nth-child(1) {
+  outline: 1px solid transparent;
+}
+
+.theme-dark .header__theme-menu-item:nth-child(3) {
+  outline: 1px solid var(--accent-color);
+}
+
+.theme-dark .header__theme-menu-button:hover {
+  outline: 1px solid rgba(255, 0, 112, 0.4);
 }
